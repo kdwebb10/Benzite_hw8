@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
-		Usage();
+		Usage(); //error function testing argv 1
 		exit(1);
 	}
 	StringIn(argv[1], argv[2]);
@@ -35,13 +35,13 @@ int main(int argc, char *argv[])
 /* Function Defenitions */
 void Usage(void)
 {
+	char *info;
 	char str1[7] = "--help";
-	if (str1[7])
+	if(strcmp(*info, str1) == 0)
 	{
 		printf("Help Information Requested\n");
 		printf("Usage ./task1 <str1> <str2>\n");
 		printf("Program checks if str2 is part of str1\n");
-		exit(1);
 	}
 	else
 	{
@@ -53,7 +53,7 @@ void Usage(void)
 }
 void StringIn(char str1[], char str2[])
 {
-	if (strstr(str1, str2)== NULL)
+	if (strstr(str1, str2)== NULL) //strstr compares string to string
 	{
 		printf("<%s> Not found in <%s>\n", str2, str1);
 		printf("Returning string <(NULL)>\n");
