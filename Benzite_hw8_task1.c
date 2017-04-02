@@ -15,15 +15,26 @@
 #include <stdlib.h>		/* Standard Library */
 
 /* Function Prototypes */
+void Usage(void);
 
 /* Main Program */
 int main(int argc, char *argv[])
 {
+	if (argc != 3)
+	{
+		Usage();
+		exit(1);
+	}
 
 	return 0;
 }
 
-
 /* Function Defenitions */
-
+void Usage(void)
+{
+	printf("Missing required parameters.\n");
+	printf("Usage ./task1 <str1> <str2>\n");
+	printf("Program checks if str2 is part of str1\n");
+	return;
+}
 
