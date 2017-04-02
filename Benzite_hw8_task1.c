@@ -13,9 +13,11 @@
  */
 #include <stdio.h>		/* For Standard I/O */
 #include <stdlib.h>		/* Standard Library */
+#include <string.h>		/* String Functions */
 
 /* Function Prototypes */
 void Usage(void);
+void StringIn(char str1[], char str2[]);
 
 /* Main Program */
 int main(int argc, char *argv[])
@@ -25,6 +27,7 @@ int main(int argc, char *argv[])
 		Usage();
 		exit(1);
 	}
+	StringIn(argv[1], argv[2]);
 
 	return 0;
 }
@@ -32,9 +35,33 @@ int main(int argc, char *argv[])
 /* Function Defenitions */
 void Usage(void)
 {
-	printf("Missing required parameters.\n");
-	printf("Usage ./task1 <str1> <str2>\n");
-	printf("Program checks if str2 is part of str1\n");
+	char str1[7] = "--help";
+	if (str1[7])
+	{
+		printf("Help Information Requested\n");
+		printf("Usage ./task1 <str1> <str2>\n");
+		printf("Program checks if str2 is part of str1\n");
+		exit(1);
+	}
+	else
+	{
+		printf("Missing required parameters.\n");
+		printf("Usage ./task1 <str1> <str2>\n");
+		printf("Program checks if str2 is part of str1\n");
+	}
 	return;
 }
-
+void StringIn(char str1[], char str2[])
+{
+	if (strstr(str1, str2)== NULL)
+	{
+		printf("<%s> Not found in <%s>\n", str2, str1);
+		printf("Returning string <(NULL)>\n");
+	}
+	else
+	{
+		printf("<%s> found in <%s>\n", str2, str1);
+		printf("Returning string <%s>\n", strstr(str1, str2));
+	}
+	return;
+}
